@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantMap: {fileID: 1918783052}
   previewMap: {fileID: 1920657688}
+  tempTile: {fileID: 11400000, guid: f47f79ac6b03aa0488fd16bc3aab148d, type: 2}
 --- !u!4 &2050616
 Transform:
   m_ObjectHideFlags: 0

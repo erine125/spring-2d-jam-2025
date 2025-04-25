@@ -19,7 +19,7 @@ public class GridManager : MonoBehaviour
     private Grid grid;
     private AGardenTool tool;
 
-    private Vector3Int previousMousePos = new();
+    private Vector3Int previousMouseCellPos = new();
 
     // Start is called before the first frame update
     void Start()
@@ -33,22 +33,20 @@ public class GridManager : MonoBehaviour
     void Update()
     {
         // Mouse over -> highlight tile
-        Vector3Int mousePos = GetMousePosition();
-        if (!mousePos.Equals(previousMousePos))
+        Vector3Int mouseCellPos = GetMouseCellPosition();
+        if (!mouseCellPos.Equals(previousMouseCellPos))
         {
-            if (tool) tool.UpdatePreview(previousMousePos, mousePos);
-            else interactiveMap.SetTile(previousMousePos, null); // Remove old hoverTile
+            if (tool) tool.UpdatePreview(previousMouseCellPos, mouseCellPos);
+            else interactiveMap.SetTile(previousMouseCellPos, null); // Remove old hoverTile
 
-            previousMousePos = mousePos;
-            previousMousePos = mousePos;
+            previousMouseCellPos = mouseCellPos;
         }
 
         // Left mouse click -> add path tile
         if (Input.GetMouseButton(0))
         {
-            if (dirtMap.HasTile(mousePos)){ // check that it's a valid space
-                Vector3Int cellPos = grid.WorldToCell(mousePos);
-                if (tool) tool.Use(cellPos);
+            if (dirtMap.HasTile(mouseCellPos)){ // check that it's a valid space
+                if (tool) tool.Use(mouseCellPos);
             }
         }
 
@@ -61,7 +59,7 @@ public class GridManager : MonoBehaviour
 
 
 
-    Vector3Int GetMousePosition()
+    Vector3Int GetMouseCellPosition()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return grid.WorldToCell(mouseWorldPos);

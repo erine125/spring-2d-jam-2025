@@ -11,8 +11,6 @@ namespace Assets.Scripts.GardenTools
     public class SeedTool : AGardenTool
     {
         private Vector2[] tiles;
-        [SerializeField] private Tilemap plantMap;
-        [SerializeField] private Tilemap interactiveMap;
 
         public GardenManager gardenManager;
 
