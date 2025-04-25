@@ -46,7 +46,10 @@ public class GridManager : MonoBehaviour
         // Left mouse click -> add path tile
         if (Input.GetMouseButton(0))
         {
-            if (tool) tool.Use();
+            if (dirtMap.HasTile(mousePos)){ // check that it's a valid space
+                Vector3Int cellPos = grid.WorldToCell(mousePos);
+                if (tool) tool.Use(cellPos);
+            }
         }
 
         // Right mouse click -> remove path tile
@@ -55,6 +58,8 @@ public class GridManager : MonoBehaviour
             if (tool) tool.Rotate();
         }
     }
+
+
 
     Vector3Int GetMousePosition()
     {

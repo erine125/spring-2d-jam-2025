@@ -7,7 +7,7 @@ namespace Assets.Scripts
     public abstract class AGardenTool : MonoBehaviour
     {
         [SerializeField] private Tilemap plantMap;
-        [SerializeField] private Tilemap previewMap;
+        [SerializeField] private Tilemap interactiveMap;
 
         // Returns the platonic cells of the tool ( [(0,0), (1, 0), (0, 1)] )
         public abstract Vector2[] GetCells();
@@ -20,6 +20,6 @@ namespace Assets.Scripts
 
         // Called to use the tool.
         // Returns true if the operation succeeded and false otherwise.
-        public abstract bool Use();
+        public abstract bool Use(Vector3Int mousePos);
     }
 }
