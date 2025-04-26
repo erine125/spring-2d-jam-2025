@@ -22,14 +22,6 @@ public class ShearTool : AGardenTool
     public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
     {
         previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
-        if (GardenManager.CanPlace(previewPlant))
-        {
-            previewPlant.spriteRenderer.color = Color.green;
-        }
-        else
-        {
-            previewPlant.spriteRenderer.color = Color.red;
-        }
     }
 
     public override bool Use(Vector3Int cellPos)
@@ -62,6 +54,7 @@ public class ShearTool : AGardenTool
         previewPlant.definition = shearDefinition;
         previewPlant.currentRotation = Plant.PlantRotation.North;
         previewPlant.spriteRenderer.sprite = shearDefinition.sprites[0];
+        previewPlant.spriteRenderer.color = Color.white; // reset color from previous tool
     }
 }
 
