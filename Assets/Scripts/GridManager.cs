@@ -42,8 +42,8 @@ public class GridManager : MonoBehaviour
             previousMouseCellPos = mouseCellPos;
         }
 
-        // Left mouse click -> add path tile
-        if (Input.GetMouseButton(0))
+        // Left mouse click -> use tool
+        if (Input.GetMouseButtonDown(0))
         {
             if (dirtMap.HasTile(mouseCellPos)){ // check that it's a valid space
                 if (tool) tool.Use(mouseCellPos);
@@ -51,7 +51,7 @@ public class GridManager : MonoBehaviour
         }
 
         // Right mouse click -> remove path tile
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             if (tool) tool.Rotate();
         }

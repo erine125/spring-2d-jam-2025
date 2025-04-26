@@ -13,7 +13,7 @@ namespace Assets.Scripts
         public abstract Vector2[] GetCells();
 
 
-        public abstract void UpdatePreview(Vector3Int previousPosition, Vector3Int newPosition);
+        public abstract void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition);
 
         // Called to attempt to rotate the tool clockwise.
         public abstract void Rotate();
