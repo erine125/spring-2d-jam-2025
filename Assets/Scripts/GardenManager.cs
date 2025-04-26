@@ -121,7 +121,7 @@ public class GardenManager : MonoBehaviour
         if (weedTimer >= timeBetweenWeeds)
         {
             weedTimer = 0f;
-            //PlaceWeed();
+            PlaceWeed();
         }
     }
 
