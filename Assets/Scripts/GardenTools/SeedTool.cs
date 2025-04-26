@@ -24,15 +24,13 @@ namespace Assets.Scripts.GardenTools
 
         public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
         {
-            // Set sprite
-            previewPlant.spriteRenderer.sprite = plantDefinitions[idx].sprite[0];
-            previewPlant.spriteRenderer.transform.position = interactiveMap.CellToWorld(newCellPosition);
+            previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
         }
 
         public override void Rotate()
         {
             if (!plantDefinitions[idx].canBeRotated) return;
-            previewPlant.spriteRenderer.transform.Rotate(0, 0, 90);
+            previewPlant.Rotate();
         }
 
         public override bool Use(Vector3Int cellPos)
@@ -43,7 +41,9 @@ namespace Assets.Scripts.GardenTools
             // place plant on grid
 
             idx = (idx + 1) % plantDefinitions.Count;
-            previewPlant.spriteRenderer.sprite = plantDefinitions[idx].sprite[0];
+            var definition = plantDefinitions[idx];
+            previewPlant.definition = definition;
+            previewPlant.spriteRenderer.sprite = definition.sprites[0];
             return true;
         }
 

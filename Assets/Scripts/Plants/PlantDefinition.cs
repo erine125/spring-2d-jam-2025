@@ -12,8 +12,8 @@ namespace Assets.Scripts.Plants
     {
         // Name of the plant.
         public string plantName;
-        // Sprite visual for the plant when placed.
-        public List<Sprite> sprite;
+        // Sprite visuals for the plant when placed.
+        public Sprite[] sprites = new Sprite[4];
         // What platonic cells this plant uses.
         public List<Vector2Int> cells;
         // Whether it can be rotated to begin with.

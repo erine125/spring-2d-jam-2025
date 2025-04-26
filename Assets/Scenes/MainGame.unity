@@ -934,9 +934,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   definition: {fileID: 0}
-  spriteRenderer: {fileID: 1797938970}
+  spriteRenderer: {fileID: 0}
   currentGrowthTime: 0
-  cellPosition: {x: 0, y: 0, z: 0}
+  currentRotation: 0
 --- !u!1 &1833104034
 GameObject:
   m_ObjectHideFlags: 0

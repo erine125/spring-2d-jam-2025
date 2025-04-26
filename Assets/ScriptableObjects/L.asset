@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: L
   m_EditorClassIdentifier: 
   plantName: L
-  sprite:
+  sprites:
   - {fileID: 21300000, guid: a29df4ad0f90f5a4abe1a87a10b1dd3b, type: 3}
+  - {fileID: 21300000, guid: d75257cab67a98d4f839221b64da9611, type: 3}
+  - {fileID: 21300000, guid: 912551025173bf14293e8d781f5657d1, type: 3}
+  - {fileID: 21300000, guid: 4f67bb47ccdf8344886c3dcd21bb3741, type: 3}
   cells:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
