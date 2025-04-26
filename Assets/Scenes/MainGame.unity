@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2050616}
+  - component: {fileID: 2050622}
   - component: {fileID: 2050615}
   - component: {fileID: 2050620}
   - component: {fileID: 2050619}
@@ -257,9 +258,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactiveMap: {fileID: 1920657688}
-  GardenManager: {fileID: 0}
+  GardenManager: {fileID: 1691517166}
   shearDefinition: {fileID: 11400000, guid: 88bc46a6cedee6f43ae9471be5bcb498, type: 2}
   previewPlant: {fileID: 1797938971}
+--- !u!114 &2050622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436d0fd9f534e1c4280ef53ff2ba9930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactiveMap: {fileID: 1920657688}
+  GardenManager: {fileID: 1691517166}
+  previewPlant: {fileID: 1797938971}
+  harvestDefinition: {fileID: 11400000, guid: 4bfa0222b0e40e64c95c3a5492a10192, type: 2}
 --- !u!1 &427918323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,9 +1045,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71346bc0b1bab640b88c8f9fcaeaf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soilMap: {fileID: 1504633820}
-  gridManager: {fileID: 427918326}
-  orderQueue: {fileID: 0}
+  gameTimer: 0
+  timeBetweenWeeds: 20
+  SoilMap: {fileID: 1504633820}
+  GridManager: {fileID: 427918326}
+  OrderQueue: {fileID: 1468860636}
+  weedDefinition: {fileID: 11400000, guid: 2b5fb7aa8ea5f2c43890da23f09b7e5d, type: 2}
+  plantHolder: {fileID: 806999912}
 --- !u!4 &1691517167
 Transform:
   m_ObjectHideFlags: 0

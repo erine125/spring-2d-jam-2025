@@ -55,6 +55,11 @@ public class Plant : MonoBehaviour
         spriteRenderer.sprite = definition.sprites[(int)currentRotation];
     }
 
+    // Called when sheared; for most Plants, reset its growth.
+    public virtual void Shear()
+    {
+        currentGrowthTime = 0f;
+    }
 
     public void SetPlantCells(Vector3Int origin)
     {
