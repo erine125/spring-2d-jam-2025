@@ -93,8 +93,10 @@ public class GardenManager : MonoBehaviour
     {
         // Trim from map
         foreach (var cellPos in plant.plantCells) RemovePlantFromTile(cellPos);
-        
+
         // TODO: OrderQueue
+        var plantName = plant.definition.plantName;
+        Debug.Log($"Fulfillment : {OrderQueue.FillOrder(plantName)}");
 
         // Guards, kill this plant
         Destroy(plant.gameObject);
@@ -119,7 +121,7 @@ public class GardenManager : MonoBehaviour
         if (weedTimer >= timeBetweenWeeds)
         {
             weedTimer = 0f;
-            PlaceWeed();
+            //PlaceWeed();
         }
     }
 

@@ -68,11 +68,16 @@ public class OrderQueue : MonoBehaviour
     {
         if (GetQueueLength() > QueueLimit) return false;
 
+        countdown = 0.01f;
+
         PlantDefinition plant = PossiblePlants[Random.Range(0, PossiblePlants.Length - 1)];
         queue.Add(plant);
         countdown = Random.Range(OrderFrequencyMin, OrderFrequencyMax);
+
+        var text = "Orders: ";
+        foreach (var item in queue) text += $"{item.plantName}, ";
+        Debug.Log(text);
+
         return true;
     }
-
-
 }
