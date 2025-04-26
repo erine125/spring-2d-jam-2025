@@ -6,7 +6,6 @@ namespace Assets.Scripts
 {
     public abstract class AGardenTool : MonoBehaviour
     {
-        [SerializeField] protected Tilemap plantMap;
         [SerializeField] protected Tilemap interactiveMap;
 
         // Returns the platonic cells of the tool ( [(0,0), (1, 0), (0, 1)] )

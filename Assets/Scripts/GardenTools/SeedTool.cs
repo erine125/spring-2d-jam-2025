@@ -13,6 +13,8 @@ namespace Assets.Scripts.GardenTools
     {
         [SerializeField] private PlantDefinition plantDefinition;
         [SerializeField] private Plant previewPlant;
+        [SerializeField] private GameObject plantHolder;
+
         private Vector2[] tiles;
 
         public GardenManager gardenManager;
@@ -36,14 +38,32 @@ namespace Assets.Scripts.GardenTools
 
             // place plant on grid
 
-            
+            PlacePlantSprite();
             return true;
+        }
+
+        // Places the plant into actual play space.
+        GameObject PlacePlantSprite()
+        {
+            GameObject o = new("Plant");
+            o.transform.SetParent(plantHolder.transform);
+            o.transform.localScale = plantHolder.transform.localScale;
+            o.transform.SetPositionAndRotation(previewPlant.transform.position, o.transform.rotation);
+
+            o.AddComponent<Plant>();
+
+            var sr = o.AddComponent<SpriteRenderer>();
+            sr.sprite = previewPlant.spriteRenderer.sprite;
+            sr.sortingLayerName = "Grid";
+            sr.sortingOrder = 1;
+
+            return o;
         }
 
         public override void SetActive()
         {
             previewPlant.definition = plantDefinition;
-            previewPlant.currentRotation = 0;
+            previewPlant.currentRotation = Plant.PlantRotation.North;
             previewPlant.spriteRenderer.sprite = plantDefinition.sprites[0];
         }
     }

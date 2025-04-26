@@ -8,6 +8,14 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
+    public enum PlantRotation
+    {
+        North = 0,
+        East = 1,
+        South = 2,
+        West = 3,
+    }
+
     // Definition of the plant.
     public PlantDefinition definition;
     public SpriteRenderer spriteRenderer;
@@ -17,7 +25,7 @@ public class Plant : MonoBehaviour
     // How long this plant has been growing.
     public float currentGrowthTime = 0f;
     // 0 = N / 1 = E / 2 = S / 3 = W
-    public int currentRotation = 0;
+    public PlantRotation currentRotation = PlantRotation.North;
 
     void Start()
     {
@@ -29,8 +37,22 @@ public class Plant : MonoBehaviour
 
     public void Rotate()
     {
-        currentRotation = (currentRotation + 1) % 4;
-        spriteRenderer.sprite = definition.sprites[currentRotation];
+        switch(currentRotation)
+        {
+            case PlantRotation.North:
+                currentRotation = PlantRotation.East;
+                break;
+            case PlantRotation.East:
+                currentRotation = PlantRotation.South;
+                break;
+            case PlantRotation.South:
+                currentRotation = PlantRotation.West;
+                break;
+            case PlantRotation.West:
+                currentRotation = PlantRotation.North;
+                break;
+        }
+        spriteRenderer.sprite = definition.sprites[(int)currentRotation];
     }
 
 
@@ -40,16 +62,16 @@ public class Plant : MonoBehaviour
 
         switch (currentRotation)
         {
-            case 0:
+            case PlantRotation.North:
                 direction = new Vector3Int(0, 1, 0);
                 break;
-            case 1:
+            case PlantRotation.East:
                 direction = new Vector3Int(1, 0, 0);
                 break;
-            case 2:
+            case PlantRotation.South:
                 direction = new Vector3Int(0, -1, 0);
                 break;
-            case 3:
+            case PlantRotation.West:
                 direction = new Vector3Int(-1, 0, 0);
                 break;
             default:
@@ -81,8 +103,7 @@ public class Plant : MonoBehaviour
                 plantCells.Add(origin + direction);
                 plantCells.Add(new Vector3Int(origin.x + direction.y, origin.y + direction.x, 0));
                 plantCells.Add(new Vector3Int(origin.x + direction.y + direction.x, origin.y + direction.x + direction.y, 0));
-                break; 
-
+                break;
         }
     }
 
