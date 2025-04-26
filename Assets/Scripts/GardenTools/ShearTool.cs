@@ -35,6 +35,7 @@ public class ShearTool : AGardenTool
             // If there's a plant, then shear it.
             if (GardenManager.TryGetPlant(cell, out Plant plant))
             {
+                // TODO: weed shearing animation/polish
                 // Remove from map if it's a weed
                 if (plant is WeedPlant) GardenManager.RemovePlantFromTile(cell);
                 // Shear the plant

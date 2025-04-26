@@ -1,8 +1,6 @@
 using Assets.Scripts.Plants;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -94,8 +92,11 @@ public class GardenManager : MonoBehaviour
     {
         // Trim from map
         foreach (var cellPos in plant.plantCells) RemovePlantFromTile(cellPos);
-
+        
         // TODO: OrderQueue
+
+        // Guards, kill this plant
+        Destroy(plant.gameObject);
     }
 
     /*
@@ -126,8 +127,22 @@ public class GardenManager : MonoBehaviour
     {
         // Only grow non-weeds
         foreach (Plant plant in livePlants)
+        {
             if (plant is not WeedPlant && !plant.IsDoneGrowing())
-               plant.currentGrowthTime += Time.deltaTime;
+            {
+                plant.currentGrowthTime += Time.deltaTime;
+                //Debug.Log($"{plant.definition.name} growth: {plant.currentGrowthTime}");
+                // Change sprites when fully grown
+                if (plant.IsDoneGrowing())
+                {
+                    var spr = plant.definition.grownSprites[(int)plant.currentRotation];
+                    if (spr != null)
+                    {
+                        plant.spriteRenderer.sprite = spr;
+                    }
+                }
+            }
+        }
     }
 
     // Place a weed at the appropriate location.
@@ -146,7 +161,6 @@ public class GardenManager : MonoBehaviour
 
         GameObject o = new("Weed (" + cellPos.x + ", " + cellPos.y + ")");
         o.transform.SetParent(plantHolder.transform);
-        //o.transform.localScale = plantHolder.transform.localScale;
         var worldPos = SoilMap.CellToWorld(cellPos);
         o.transform.SetPositionAndRotation(worldPos, o.transform.rotation);
 
