@@ -105,10 +105,10 @@ public class Plant : MonoBehaviour
                 plantCells.Add(origin + new Vector3Int(direction.y, -direction.x, 0));
                 break;
             case PlantShape._2x2:
-                plantCells.Add(origin);
-                plantCells.Add(origin + direction);
-                plantCells.Add(new Vector3Int(origin.x + direction.y, origin.y + direction.x, 0));
-                plantCells.Add(new Vector3Int(origin.x + direction.y + direction.x, origin.y + direction.x + direction.y, 0));
+                plantCells.Add(origin); // br
+                plantCells.Add(origin - new Vector3Int(1, 0, 0)); // bl
+                plantCells.Add(new Vector3Int(origin.x, origin.y + 1, 0)); // tr
+                plantCells.Add(new Vector3Int(origin.x - 1, origin.y + 1, 0)); // tl
                 break;
         }
 
