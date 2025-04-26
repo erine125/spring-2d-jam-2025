@@ -79,7 +79,7 @@ public class GardenManager : MonoBehaviour
                 if (tile != null)
                 {
                     //Debug.Log("x:" + x + " y:" + y + " tile:" + tile.name);
-                    var cellPos = new Vector3Int(x, y, 0) + new Vector3Int(-9, 0, 0);
+                    var cellPos = new Vector3Int(x, y, 0) + new Vector3Int(-9, -1, 0);
                     if (!HasPlant(cellPos)) openTiles.Add(cellPos);
                 }
             }

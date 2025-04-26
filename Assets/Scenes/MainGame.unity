@@ -1135,13 +1135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71346bc0b1bab640b88c8f9fcaeaf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimer: 0
-  timeBetweenWeeds: 20
+  gameTimer: 180
+  timeBetweenWeeds: 10
   SoilMap: {fileID: 1504633820}
   GridManager: {fileID: 427918326}
   OrderQueue: {fileID: 1468860636}
   weedDefinition: {fileID: 11400000, guid: 2b5fb7aa8ea5f2c43890da23f09b7e5d, type: 2}
   plantHolder: {fileID: 806999912}
+  weedTimer: 0
 --- !u!4 &1691517167
 Transform:
   m_ObjectHideFlags: 0
