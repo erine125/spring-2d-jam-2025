@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShearTool : AGardenTool
 {
+    [SerializeField] private Color invalidColor = new Color(0.5f, 0, 0, 0.5f);
     [SerializeField] private GardenManager GardenManager;
     [SerializeField] private PlantDefinition shearDefinition;
     [SerializeField] private Plant previewPlant;
@@ -22,6 +23,17 @@ public class ShearTool : AGardenTool
     public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
     {
         previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
+
+        previewPlant.SetPlantCells(newCellPosition);
+        foreach (Vector3Int cell in previewPlant.plantCells)
+        {
+            if (!GardenManager.SoilMap.HasTile(cell))
+            {
+                previewPlant.spriteRenderer.color = invalidColor;
+                return;
+            }
+        }
+        previewPlant.spriteRenderer.color = Color.white;
     }
 
     public override bool Use(Vector3Int cellPos)

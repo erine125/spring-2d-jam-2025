@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactiveMap: {fileID: 1920657688}
+  invalidColor: {r: 0.5, g: 0, b: 0, a: 0.76862746}
   GardenManager: {fileID: 1691517166}
   shearDefinition: {fileID: 11400000, guid: 88bc46a6cedee6f43ae9471be5bcb498, type: 2}
   previewPlant: {fileID: 1797938971}
@@ -1260,6 +1261,7 @@ MonoBehaviour:
   plantCells: []
   currentGrowthTime: 0
   currentRotation: 0
+  slider: {fileID: 0}
 --- !u!1 &1833104034
 GameObject:
   m_ObjectHideFlags: 0
