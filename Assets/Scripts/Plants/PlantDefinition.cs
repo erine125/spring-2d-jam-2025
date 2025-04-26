@@ -14,8 +14,9 @@ namespace Assets.Scripts.Plants
         public string plantName;
         // Sprite visual for tbe plant when it is in the oder.
         public Sprite orderSprite;
-        // Sprite visuals for the plant when placed.
+        // Sprite visuals for the plant when placed (grown and ungrown)
         public Sprite[] sprites = new Sprite[4];
+        public Sprite[] grownSprites = new Sprite[4];
         // What platonic cells this plant uses.
         public List<Vector2Int> cells;
         // Whether it can be rotated to begin with.
