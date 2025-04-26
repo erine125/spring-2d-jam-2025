@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class GridManager : MonoBehaviour
     private AGardenTool[] toolList;
 
     private Grid grid;
+    private int toolIdx = 0;
     private AGardenTool tool;
 
     private Vector3Int previousMouseCellPos = new();
@@ -26,7 +28,10 @@ public class GridManager : MonoBehaviour
     {
         grid = gameObject.GetComponent<Grid>();
         toolList = toolObject.GetComponents<AGardenTool>();
-        tool = toolList[0];
+
+        toolIdx = 0;
+        tool = toolList[toolIdx];
+        tool.SetActive();
     }
 
     // Update is called once per frame
@@ -45,19 +50,30 @@ public class GridManager : MonoBehaviour
         // Left mouse click -> use tool
         if (Input.GetMouseButtonDown(0))
         {
-            if (dirtMap.HasTile(mouseCellPos)){ // check that it's a valid space
+            if (dirtMap.HasTile(mouseCellPos))
+            { // check that it's a valid space
                 if (tool) tool.Use(mouseCellPos);
             }
         }
-
         // Right mouse click -> remove path tile
-        if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1))
         {
             if (tool) tool.Rotate();
         }
+        // Scroll to cycle tools
+        else if (Input.mouseScrollDelta.y > 0)
+        {
+            toolIdx = (toolIdx - 1) % toolList.Length;
+            if (toolIdx < 0) toolIdx = toolList.Length - 1;
+            tool = toolList[toolIdx];
+            tool.SetActive();
+        } else if (Input.mouseScrollDelta.y < 0)
+        {
+            toolIdx = (toolIdx + 1) % toolList.Length;
+            tool = toolList[toolIdx];
+            tool.SetActive();
+        }
     }
-
-
 
     Vector3Int GetMouseCellPosition()
     {

@@ -7,8 +7,7 @@ using UnityEngine;
 public class Plant : MonoBehaviour
 {
     // Definition of the plant.
-    [SerializeField] public PlantDefinition definition;
-
+    public PlantDefinition definition;
     public SpriteRenderer spriteRenderer;
 
     // How long this plant has been growing.
@@ -18,7 +17,7 @@ public class Plant : MonoBehaviour
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Returns whether or not this plant is done growing.

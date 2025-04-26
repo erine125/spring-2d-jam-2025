@@ -21,5 +21,7 @@ namespace Assets.Scripts
         // Called to use the tool.
         // Returns true if the operation succeeded and false otherwise.
         public abstract bool Use(Vector3Int cellPos);
+        // Called when this tool is set as active.
+        public virtual void SetActive() { }
     }
 }
