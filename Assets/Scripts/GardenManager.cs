@@ -13,7 +13,7 @@ public class GardenManager : MonoBehaviour
     Dictionary<Vector3Int, Plant> plantMap = new();
 
     // Duration of the run
-    public float gameTimer = 60f * 3f;
+    public float gameTimer = 180f;
     // Weeds spawn every this many seconds
     public float timeBetweenWeeds = 20f;
 

@@ -21,7 +21,7 @@ public class HarvestTool : AGardenTool
 
     public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
     {
-        throw new System.NotImplementedException();
+        previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
     }
 
     public override bool Use(Vector3Int cellPos)

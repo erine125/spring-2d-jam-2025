@@ -665,7 +665,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7816a29f2391f4eeeaa64e9716132262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PossiblePlants: []
+  PossiblePlants:
+  - {fileID: 11400000, guid: 60c2a60e1f9cbb64a8ee3136585719fa, type: 2}
+  - {fileID: 11400000, guid: 88be7cc361b1c3448be37a01e7a92921, type: 2}
+  - {fileID: 11400000, guid: 2b6a2edd06cfbc246a3eac6fe72de8a7, type: 2}
+  - {fileID: 11400000, guid: 68318c65110fc744f8227a85904a9e73, type: 2}
+  - {fileID: 11400000, guid: f2b38a8703ffc574fb36f9afb8e80188, type: 2}
   QueueLimit: 4
   OrderFrequencyMin: 3
   OrderFrequencyMax: 5
