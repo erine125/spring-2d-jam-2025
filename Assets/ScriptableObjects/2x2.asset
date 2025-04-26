@@ -23,3 +23,6 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: 0, y: 1}
   - {x: 1, y: 1}
+  canBeRotated: 0
+  timeToGrow: 10
+  plantShape: 2x2

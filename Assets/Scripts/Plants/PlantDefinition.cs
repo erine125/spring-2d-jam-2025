@@ -20,5 +20,7 @@ namespace Assets.Scripts.Plants
         public bool canBeRotated;
         // How long this plant takes to grow in seconds.
         public float timeToGrow = 10f;
+        // What size and shape the plant is
+        public string plantShape;
     }
 }
