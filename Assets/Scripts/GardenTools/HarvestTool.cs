@@ -28,8 +28,11 @@ public class HarvestTool : AGardenTool
     {
         if (GardenManager.TryGetPlant(cellPos, out Plant plant))
         {
-            GardenManager.HarvestPlant(plant);
-            return true;
+            if (plant.IsDoneGrowing())
+            {
+                GardenManager.HarvestPlant(plant);
+                return true;
+            }
         }
         return false;
     }
