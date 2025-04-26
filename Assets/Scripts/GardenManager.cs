@@ -24,7 +24,7 @@ public class GardenManager : MonoBehaviour
     [SerializeField] private PlantDefinition weedDefinition;
     [SerializeField] private GameObject plantHolder;
 
-    private float weedTimer = 0.0f;
+    public float weedTimer = 0.0f;
 
     public bool HasPlant(Vector3Int cellPos) => plantMap.ContainsKey(cellPos);
 
@@ -79,8 +79,8 @@ public class GardenManager : MonoBehaviour
                 if (tile != null)
                 {
                     //Debug.Log("x:" + x + " y:" + y + " tile:" + tile.name);
-                    var cellPos = new Vector3Int(x, y, 0);
-                    if (HasPlant(cellPos)) openTiles.Add(cellPos);
+                    var cellPos = new Vector3Int(x, y, 0) + new Vector3Int(-9, 0, 0);
+                    if (!HasPlant(cellPos)) openTiles.Add(cellPos);
                 }
             }
         }
@@ -135,15 +135,20 @@ public class GardenManager : MonoBehaviour
     {
         // No tiles to place a weed in
         var openTiles = GetAllOpenTiles(SoilMap);
-        if (openTiles.Count == 0) return null;
+        if (openTiles.Count == 0)
+        {
+            Debug.Log("No open tiles for weeds");
+            return null;
+        }
 
         var randomRotation = (Plant.PlantRotation)Random.Range(0, Enum.GetValues(typeof(Plant.PlantRotation)).Length);
         var cellPos = openTiles[Random.Range(0, openTiles.Count)];
 
-        GameObject o = new("Weed");
+        GameObject o = new("Weed (" + cellPos.x + ", " + cellPos.y + ")");
         o.transform.SetParent(plantHolder.transform);
-        o.transform.localScale = plantHolder.transform.localScale;
-        o.transform.SetPositionAndRotation(SoilMap.CellToWorld(cellPos), o.transform.rotation);
+        //o.transform.localScale = plantHolder.transform.localScale;
+        var worldPos = SoilMap.CellToWorld(cellPos);
+        o.transform.SetPositionAndRotation(worldPos, o.transform.rotation);
 
         var plant = o.AddComponent<WeedPlant>();
         plant.definition = weedDefinition;
@@ -160,5 +165,4 @@ public class GardenManager : MonoBehaviour
 
         return o;
     }
-
 }

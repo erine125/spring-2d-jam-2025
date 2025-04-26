@@ -25,7 +25,7 @@ namespace Assets.Scripts.GardenTools
         public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
         {
             previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
-            //Debug.Log(newCellPosition);
+            Debug.Log(newCellPosition);
         }
 
         public override void Rotate()
