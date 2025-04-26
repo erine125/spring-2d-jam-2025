@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e39cdef2bad44944a96adca6711bc70, type: 3}
   m_Name: L
   m_EditorClassIdentifier: 
-  plantName: L
+  plantName: L-Placeholder
+  orderSprite: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: a29df4ad0f90f5a4abe1a87a10b1dd3b, type: 3}
   - {fileID: 21300000, guid: d75257cab67a98d4f839221b64da9611, type: 3}
@@ -24,4 +25,4 @@ MonoBehaviour:
   - {x: 0, y: -1}
   canBeRotated: 1
   timeToGrow: 10
-  plantShape: L
+  plantShape: 3
