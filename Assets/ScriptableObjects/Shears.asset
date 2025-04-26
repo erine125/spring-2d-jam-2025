@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e39cdef2bad44944a96adca6711bc70, type: 3}
-  m_Name: 1x2
+  m_Name: Shears
   m_EditorClassIdentifier: 
-  plantName: 1x2-Placeholder
+  plantName: 
   orderSprite: {fileID: 0}
   sprites:
-  - {fileID: 21300000, guid: 704dd2eb6e32fba44acd01cfdb1507fb, type: 3}
-  - {fileID: 21300000, guid: 293ee17838a46854cad3e950e73a01a8, type: 3}
-  - {fileID: 21300000, guid: f94df79e49340bd419cf72a8f6b67e91, type: 3}
-  - {fileID: 21300000, guid: 0de15bd9fde12f0489223a8f8d5b75ba, type: 3}
+  - {fileID: 21300000, guid: 1a5e06bbd27449242a7bf97724dcf79a, type: 3}
+  - {fileID: 21300000, guid: 90f88c62a8b4a8c41bd308ed471e6156, type: 3}
+  - {fileID: 21300000, guid: a9da54c3c6dca054aaef48321a39b0d6, type: 3}
+  - {fileID: 21300000, guid: d71a59a6868b16c4a9a2f3bb48c5f617, type: 3}
   cells:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
-  canBeRotated: 1
+  canBeRotated: 0
   timeToGrow: 10
-  plantShape: 1
+  plantShape: 0

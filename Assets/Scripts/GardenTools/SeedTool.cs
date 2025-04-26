@@ -25,6 +25,7 @@ namespace Assets.Scripts.GardenTools
         public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
         {
             previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
+            //Debug.Log(newCellPosition);
         }
 
         public override void Rotate()
@@ -35,10 +36,12 @@ namespace Assets.Scripts.GardenTools
         public override bool Use(Vector3Int cellPos)
         {
             // check that it's not overlapping with an existing plant or weed
-            if (gardenManager.canPlace(previewPlant))
+            if (gardenManager.CanPlace(previewPlant))
             {
                 GameObject newPlant = PlacePlantSprite();
-                gardenManager.addPlant(previewPlant);
+                var plant = newPlant.GetComponent<Plant>();
+                plant.SetPlantCells(cellPos);
+                gardenManager.AddPlant(plant);
                 return true;
             }
             else
@@ -56,7 +59,10 @@ namespace Assets.Scripts.GardenTools
             o.transform.localScale = plantHolder.transform.localScale;
             o.transform.SetPositionAndRotation(previewPlant.transform.position, o.transform.rotation);
 
-            o.AddComponent<Plant>();
+            var plant = o.AddComponent<Plant>();
+            plant.definition = previewPlant.definition;
+            plant.currentRotation = previewPlant.currentRotation;
+            plant.plantCells = previewPlant.plantCells;
 
             var sr = o.AddComponent<SpriteRenderer>();
             sr.sprite = previewPlant.spriteRenderer.sprite;

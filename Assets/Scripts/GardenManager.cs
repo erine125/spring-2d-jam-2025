@@ -1,42 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GardenManager : MonoBehaviour
 {
     List<Plant> livePlants = new();
     Dictionary<Vector3Int, Plant> plantMap = new();
 
-    public GridManager gridmanager_;
+    [SerializeField] private Tilemap soilMap;
+    public GridManager gridManager;
 
-    // Start is called before the first frame update
-    void Start()
+    public bool CanPlace(Plant previewPlant)
     {
-        
-    }
+        previewPlant.SetPlantCells(gridManager.GetMouseCellPosition());
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public bool canPlace(Plant previewPlant)
-    {
-        previewPlant.setPlantCells(gridmanager_.GetMouseCellPosition());
         foreach (Vector3Int cell in previewPlant.plantCells)
         {
-            if (plantMap.ContainsKey(cell))
-            {
-                return false;
-            }
+            if (!soilMap.HasTile(cell)) return false; // Within the playspace
+            if (plantMap.ContainsKey(cell)) return false; // Doesn't have a plant in it
         }
         return true;
     }
 
-    public void addPlant(Plant plant)
+    public void AddPlant(Plant plant)
     {
-        if (canPlace(plant))
+        if (CanPlace(plant))
         {
             foreach (Vector3Int cell in plant.plantCells)
             {

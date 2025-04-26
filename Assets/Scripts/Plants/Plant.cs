@@ -56,8 +56,9 @@ public class Plant : MonoBehaviour
     }
 
 
-    public void setPlantCells(Vector3Int origin)
+    public void SetPlantCells(Vector3Int origin)
     {
+        plantCells.Clear();
         Vector3Int direction;
 
         switch (currentRotation)
@@ -96,7 +97,7 @@ public class Plant : MonoBehaviour
             case PlantShape._L:
                 plantCells.Add(origin);
                 plantCells.Add(origin + direction);
-                plantCells.Add(new Vector3Int(origin.x + direction.y, origin.y + direction.x, 0));
+                plantCells.Add(origin + new Vector3Int(direction.y, -direction.x, 0));
                 break;
             case PlantShape._2x2:
                 plantCells.Add(origin);
@@ -105,6 +106,10 @@ public class Plant : MonoBehaviour
                 plantCells.Add(new Vector3Int(origin.x + direction.y + direction.x, origin.y + direction.x + direction.y, 0));
                 break;
         }
-    }
 
+        //// Debug placed positions
+        //var text = Enum.GetName(typeof(PlantRotation), currentRotation) + " | ";
+        //foreach (Vector3Int v in plantCells) text += v.x + "," + v.y + " | ";
+        //Debug.Log(text);
+    }
 }
