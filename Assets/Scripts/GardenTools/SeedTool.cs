@@ -43,7 +43,8 @@ namespace Assets.Scripts.GardenTools
                 var plant = newPlant.GetComponent<Plant>();
                 plant.SetPlantCells(cellPos);
                 gardenManager.AddPlant(plant);
-                // TODO: add timer UI 
+
+                previewPlant.plantCells.Clear();
                 return true;
             }
             else
@@ -64,7 +65,9 @@ namespace Assets.Scripts.GardenTools
             var plant = o.AddComponent<Plant>();
             plant.definition = previewPlant.definition;
             plant.currentRotation = previewPlant.currentRotation;
-            plant.plantCells = previewPlant.plantCells;
+            // Copy the cells since otherwise it's passed by reference
+            foreach (var cell in previewPlant.plantCells)
+                plant.plantCells.Add(new Vector3Int(cell.x, cell.y, 0));
 
             plant.CreateTimerUI();
 
@@ -78,6 +81,8 @@ namespace Assets.Scripts.GardenTools
 
         public override void SetActive()
         {
+            // TODO: set seed cursor icon
+
             previewPlant.definition = plantDefinition;
             previewPlant.currentRotation = Plant.PlantRotation.North;
             previewPlant.spriteRenderer.sprite = plantDefinition.sprites[0];

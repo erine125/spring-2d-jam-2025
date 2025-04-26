@@ -55,7 +55,7 @@ public class GridManager : MonoBehaviour
                 if (tool) tool.Use(mouseCellPos);
             }
         }
-        // Right mouse click -> remove path tile
+        // Right mouse click -> rotate plant
         else if (Input.GetMouseButtonDown(1))
         {
             if (tool) tool.Rotate();
