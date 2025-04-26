@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class OrderQueue : MonoBehaviour
 {
+    public int OrdersCompleted = 0;
+
     public PlantDefinition[] PossiblePlants;
     public int QueueLimit = 4;
     public float OrderFrequencyMin = 3f;
@@ -57,6 +59,8 @@ public class OrderQueue : MonoBehaviour
 
         if (found != -1)
         {
+            // TODO: display score
+            OrdersCompleted += 1;
             queue.RemoveAt(found);
             return true;
         }
