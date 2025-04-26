@@ -7,6 +7,8 @@ public class GardenManager : MonoBehaviour
     List<Plant> livePlants = new();
     Dictionary<Vector3Int, Plant> plantMap = new();
 
+    public GridManager gridmanager_;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class GardenManager : MonoBehaviour
 
     public bool canPlace(Plant previewPlant)
     {
+        previewPlant.setPlantCells(gridmanager_.GetMouseCellPosition());
         foreach (Vector3Int cell in previewPlant.plantCells)
         {
             if (plantMap.ContainsKey(cell))
@@ -40,6 +43,8 @@ public class GardenManager : MonoBehaviour
                 plantMap.Add(cell, plant);
             }
             livePlants.Add(plant);
+
+            Debug.Log("Added plant to garden at:", plant.plantCells[0].x, plant.plantCells[0].y);
         }
     }
 

@@ -75,7 +75,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    Vector3Int GetMouseCellPosition()
+    public Vector3Int GetMouseCellPosition()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return grid.WorldToCell(mouseWorldPos);

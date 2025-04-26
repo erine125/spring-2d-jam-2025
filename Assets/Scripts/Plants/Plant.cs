@@ -34,7 +34,7 @@ public class Plant : MonoBehaviour
 
     // Returns whether or not this plant is done growing.
     public bool IsDoneGrowing() => currentGrowthTime >= definition.timeToGrow;
-
+    
     public void Rotate()
     {
         switch(currentRotation)
