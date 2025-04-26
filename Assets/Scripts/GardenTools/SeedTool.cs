@@ -34,12 +34,18 @@ namespace Assets.Scripts.GardenTools
 
         public override bool Use(Vector3Int cellPos)
         {
-            // TODO: check that it's not overlapping with an existing plant or weed
-
-            // place plant on grid
-
-            PlacePlantSprite();
-            return true;
+            // check that it's not overlapping with an existing plant or weed
+            if (gardenManager.canPlace(previewPlant))
+            {
+                GameObject newPlant = PlacePlantSprite();
+                gardenManager.addPlant(previewPlant);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Cannot place plant here.");
+                return false;
+            }
         }
 
         // Places the plant into actual play space.
