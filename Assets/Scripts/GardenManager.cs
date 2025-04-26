@@ -44,7 +44,7 @@ public class GardenManager : MonoBehaviour
             }
             livePlants.Add(plant);
 
-            Debug.Log("Added plant to garden at:", plant.plantCells[0].x, plant.plantCells[0].y);
+            Debug.Log("Added plant to garden at: " + plant.plantCells[0].x + ", " + plant.plantCells[0].y);
         }
     }
 

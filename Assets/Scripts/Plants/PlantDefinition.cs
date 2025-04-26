@@ -12,6 +12,8 @@ namespace Assets.Scripts.Plants
     {
         // Name of the plant.
         public string plantName;
+        // Sprite visual for tbe plant when it is in the oder.
+        public Sprite orderSprite;
         // Sprite visuals for the plant when placed.
         public Sprite[] sprites = new Sprite[4];
         // What platonic cells this plant uses.
@@ -21,6 +23,15 @@ namespace Assets.Scripts.Plants
         // How long this plant takes to grow in seconds.
         public float timeToGrow = 10f;
         // What size and shape the plant is
-        public string plantShape;
+        public PlantShape plantShape;
+    }
+
+    public enum PlantShape
+    {
+        _1x1,
+        _1x2,
+        _1x3,
+        _L,
+        _2x2
     }
 }

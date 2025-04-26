@@ -56,7 +56,7 @@ public class Plant : MonoBehaviour
     }
 
 
-    void setPlantCells(Vector3Int origin)
+    public void setPlantCells(Vector3Int origin)
     {
         Vector3Int direction;
 
@@ -81,24 +81,24 @@ public class Plant : MonoBehaviour
 
         switch (definition.plantShape)
         {
-            case "1x1":
+            case PlantShape._1x1:
                 plantCells.Add(origin);
                 break;
-            case "1x2":
+            case PlantShape._1x2:
                 plantCells.Add(origin);
                 plantCells.Add(origin + direction);
                 break;
-            case "1x3":
+            case PlantShape._1x3:
                 plantCells.Add(origin);
                 plantCells.Add(origin + direction);
                 plantCells.Add(origin + direction * 2);
                 break;
-            case "L":
+            case PlantShape._L:
                 plantCells.Add(origin);
                 plantCells.Add(origin + direction);
                 plantCells.Add(new Vector3Int(origin.x + direction.y, origin.y + direction.x, 0));
                 break;
-            case "2x2":
+            case PlantShape._2x2:
                 plantCells.Add(origin);
                 plantCells.Add(origin + direction);
                 plantCells.Add(new Vector3Int(origin.x + direction.y, origin.y + direction.x, 0));
