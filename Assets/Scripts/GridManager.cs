@@ -39,13 +39,15 @@ public class GridManager : MonoBehaviour
     {
         // Mouse over -> highlight tile
         Vector3Int mouseCellPos = GetMouseCellPosition();
-        if (!mouseCellPos.Equals(previousMouseCellPos))
-        {
-            if (tool) tool.UpdatePreview(previousMouseCellPos, mouseCellPos);
-            else interactiveMap.SetTile(previousMouseCellPos, null); // Remove old hoverTile
+        if (tool) tool.UpdatePreview(previousMouseCellPos, mouseCellPos);
+        previousMouseCellPos = mouseCellPos;
+        //if (!mouseCellPos.Equals(previousMouseCellPos))
+        //{
+        //    if (tool) tool.UpdatePreview(previousMouseCellPos, mouseCellPos);
+        //    else interactiveMap.SetTile(previousMouseCellPos, null); // Remove old hoverTile
 
-            previousMouseCellPos = mouseCellPos;
-        }
+        //    previousMouseCellPos = mouseCellPos;
+        //}
 
         // Left mouse click -> use tool
         if (Input.GetMouseButtonDown(0))

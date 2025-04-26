@@ -30,7 +30,7 @@ public class Plant : MonoBehaviour
     // 0 = N / 1 = E / 2 = S / 3 = W
     public PlantRotation currentRotation = PlantRotation.North;
 
-    private GameObject slider_;
+    public GameObject slider;
 
 
     void Start()
@@ -45,16 +45,16 @@ public class Plant : MonoBehaviour
     {
         Debug.Log("Now creating timer UI");
         GameObject timerPrefab = definition.timerPrefab;
-        slider_ = Instantiate(timerPrefab, transform.position + new Vector3(0.5f, 1.2f, 0), Quaternion.identity);
-        Debug.Log("Instantiated "+ slider_.name);
-        slider_.transform.SetParent(GameObject.Find("Canvas").transform);
-        slider_.GetComponent<Slider>().value = 0f;
+        slider = Instantiate(timerPrefab, transform.position + new Vector3(0.5f, 1.2f, 0), Quaternion.identity);
+        Debug.Log("Instantiated "+ slider.name);
+        slider.transform.SetParent(GameObject.Find("Canvas").transform);
+        slider.GetComponent<Slider>().value = 0f;
         
     }
 
     public void UpdatePlantTimerUI()
     {
-        slider_.GetComponent<Slider>().value = currentGrowthTime / definition.timeToGrow;
+        slider.GetComponent<Slider>().value = currentGrowthTime / definition.timeToGrow;
     }
 
     public void Rotate()

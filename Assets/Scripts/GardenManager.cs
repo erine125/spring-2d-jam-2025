@@ -98,6 +98,8 @@ public class GardenManager : MonoBehaviour
         var plantName = plant.definition.plantName;
         Debug.Log($"Fulfillment : {OrderQueue.FillOrder(plantName)}");
 
+        Destroy(plant.slider);
+
         // Guards, kill this plant
         Destroy(plant.gameObject);
     }
