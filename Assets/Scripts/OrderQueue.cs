@@ -8,42 +8,42 @@ public class OrderQueue : MonoBehaviour
     public int QueueLimit = 4;
     public float OrderFrequencyMin = 3f;
     public float OrderFrequencyMax = 5f;
-    
+
     // Time until next plant
     private double countdown;
-    public double GetCountdown ()
+    public double GetCountdown()
     {
         return countdown;
     }
 
     // Not a true queue as only first matching element will be popped, not first element
     private List<PlantDefinition> queue;
-    public int GetQueueLength ()
+    public int GetQueueLength()
     {
         return queue.Count;
     }
-    public PlantDefinition GetQueueAt (int index)
+    public PlantDefinition GetQueueAt(int index)
     {
         if (queue.Count > index) return queue[index];
         else return null;
     }
 
 
-    public OrderQueue ()
+    public OrderQueue()
     {
         queue = new List<PlantDefinition>();
         countdown = 0.01;
     }
 
-    void Update ()
+    void Update()
     {
         if (countdown > 0) countdown -= Time.deltaTime;
-        if (countdown <= 0) AddOrder ();
+        if (countdown <= 0) AddOrder();
     }
 
 
     // Returns true if the order matched
-    public bool FillOrder (string plantName)
+    public bool FillOrder(string plantName)
     {
         int found = -1;
         for (int i = 0; i < queue.Count; ++i)
@@ -57,20 +57,20 @@ public class OrderQueue : MonoBehaviour
 
         if (found != -1)
         {
-            queue.RemoveAt (found);
+            queue.RemoveAt(found);
             return true;
         }
 
         return false;
     }
 
-    private bool AddOrder ()
+    private bool AddOrder()
     {
-        if (GetQueueLength () > QueueLimit) return false;
+        if (GetQueueLength() > QueueLimit) return false;
 
-        PlantDefinition plant = PossiblePlants[Random.Range (0, PossiblePlants.Length - 1)];
-        queue.Add (plant);
-        countdown = Random.Range (OrderFrequencyMin, OrderFrequencyMax);
+        PlantDefinition plant = PossiblePlants[Random.Range(0, PossiblePlants.Length - 1)];
+        queue.Add(plant);
+        countdown = Random.Range(OrderFrequencyMin, OrderFrequencyMax);
         return true;
     }
 

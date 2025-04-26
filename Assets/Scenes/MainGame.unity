@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactiveMap: {fileID: 1920657688}
+  GardenManager: {fileID: 0}
   shearDefinition: {fileID: 11400000, guid: 88bc46a6cedee6f43ae9471be5bcb498, type: 2}
   previewPlant: {fileID: 1797938971}
 --- !u!1 &427918323
@@ -618,6 +619,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1468860635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1468860637}
+  - component: {fileID: 1468860636}
+  m_Layer: 0
+  m_Name: OrderQueue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1468860636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468860635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7816a29f2391f4eeeaa64e9716132262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PossiblePlants: []
+  QueueLimit: 4
+  OrderFrequencyMin: 3
+  OrderFrequencyMax: 5
+--- !u!4 &1468860637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468860635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1504633817
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soilMap: {fileID: 1504633820}
   gridManager: {fileID: 427918326}
+  orderQueue: {fileID: 0}
 --- !u!4 &1691517167
 Transform:
   m_ObjectHideFlags: 0
@@ -1379,3 +1429,4 @@ SceneRoots:
   - {fileID: 1195961746}
   - {fileID: 588845378}
   - {fileID: 1691517167}
+  - {fileID: 1468860637}
