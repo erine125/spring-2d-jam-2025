@@ -21,7 +21,19 @@ public class HarvestTool : AGardenTool
 
     public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
     {
+
+        if (GardenManager.CanPlace(previewPlant))
+        {
+            previewPlant.spriteRenderer.color = Color.green;
+        }
+        else
+        {
+            previewPlant.spriteRenderer.color = Color.red;
+        }
+
         previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
+
+        
     }
 
     public override bool Use(Vector3Int cellPos)

@@ -23,7 +23,7 @@ public class GardenManager : MonoBehaviour
     [SerializeField] private GameObject plantHolder;
 
     public float weedTimer = 0.0f;
-
+    
     public bool HasPlant(Vector3Int cellPos) => plantMap.ContainsKey(cellPos);
 
     // Returns true if there is a plant at this position else false.
@@ -132,6 +132,8 @@ public class GardenManager : MonoBehaviour
             if (plant is not WeedPlant && !plant.IsDoneGrowing())
             {
                 plant.currentGrowthTime += Time.deltaTime;
+                plant.UpdatePlantTimerUI();
+
                 //Debug.Log($"{plant.definition.name} growth: {plant.currentGrowthTime}");
                 // Change sprites when fully grown
                 if (plant.IsDoneGrowing())

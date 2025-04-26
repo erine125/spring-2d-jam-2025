@@ -26,6 +26,14 @@ namespace Assets.Scripts.GardenTools
         public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
         {
             previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
+            if (gardenManager.CanPlace(previewPlant))
+            {
+                previewPlant.spriteRenderer.color = Color.green;
+            }
+            else
+            {
+                previewPlant.spriteRenderer.color = Color.red;
+            }
             //Debug.Log(newCellPosition);
         }
 
