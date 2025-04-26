@@ -20,10 +20,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f94df79e49340bd419cf72a8f6b67e91, type: 3}
   - {fileID: 21300000, guid: 0de15bd9fde12f0489223a8f8d5b75ba, type: 3}
   grownSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: e631d72b9f4993a4082187d84125054b, type: 3}
+  - {fileID: 21300000, guid: 2f1551102a9306547a71c9a9e2a88eea, type: 3}
+  - {fileID: 21300000, guid: 7bb0047775558b04fa3f2ffe65296601, type: 3}
+  - {fileID: 21300000, guid: 4adb7a4b213954a498b39dfba5d66775, type: 3}
   cells:
   - {x: 0, y: 0}
   - {x: 0, y: 1}

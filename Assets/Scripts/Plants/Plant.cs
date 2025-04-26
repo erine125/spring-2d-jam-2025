@@ -81,6 +81,7 @@ public class Plant : MonoBehaviour
     public virtual void Shear()
     {
         currentGrowthTime = 0f;
+        spriteRenderer.sprite = definition.sprites[(int)currentRotation];
     }
 
     public void SetPlantCells(Vector3Int origin)
