@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+
 namespace Assets.Scripts.GardenTools
 {
     public class SeedTool : AGardenTool
@@ -25,7 +26,7 @@ namespace Assets.Scripts.GardenTools
         public override void UpdatePreview(Vector3Int previousCellPosition, Vector3Int newCellPosition)
         {
             previewPlant.transform.position = interactiveMap.CellToWorld(newCellPosition);
-            Debug.Log(newCellPosition);
+            //Debug.Log(newCellPosition);
         }
 
         public override void Rotate()
@@ -42,6 +43,7 @@ namespace Assets.Scripts.GardenTools
                 var plant = newPlant.GetComponent<Plant>();
                 plant.SetPlantCells(cellPos);
                 gardenManager.AddPlant(plant);
+                // TODO: add timer UI 
                 return true;
             }
             else
@@ -63,6 +65,8 @@ namespace Assets.Scripts.GardenTools
             plant.definition = previewPlant.definition;
             plant.currentRotation = previewPlant.currentRotation;
             plant.plantCells = previewPlant.plantCells;
+
+            plant.CreateTimerUI();
 
             var sr = o.AddComponent<SpriteRenderer>();
             sr.sprite = previewPlant.spriteRenderer.sprite;

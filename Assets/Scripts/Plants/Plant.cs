@@ -3,8 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class Plant : MonoBehaviour
 {
@@ -27,6 +30,9 @@ public class Plant : MonoBehaviour
     // 0 = N / 1 = E / 2 = S / 3 = W
     public PlantRotation currentRotation = PlantRotation.North;
 
+    private GameObject slider_;
+
+
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -34,7 +40,23 @@ public class Plant : MonoBehaviour
 
     // Returns whether or not this plant is done growing.
     public bool IsDoneGrowing() => currentGrowthTime >= definition.timeToGrow;
-    
+
+    public void CreateTimerUI()
+    {
+        Debug.Log("Now creating timer UI");
+        GameObject timerPrefab = definition.timerPrefab;
+        slider_ = Instantiate(timerPrefab, transform.position + new Vector3(0.5f, 1.2f, 0), Quaternion.identity);
+        Debug.Log("Instantiated "+ slider_.name);
+        slider_.transform.SetParent(GameObject.Find("Canvas").transform);
+        slider_.GetComponent<Slider>().value = 0f;
+        
+    }
+
+    public void UpdatePlantTimerUI()
+    {
+        slider_.GetComponent<Slider>().value = currentGrowthTime / definition.timeToGrow;
+    }
+
     public void Rotate()
     {
         switch(currentRotation)

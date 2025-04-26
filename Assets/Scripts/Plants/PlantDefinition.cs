@@ -25,6 +25,8 @@ namespace Assets.Scripts.Plants
         public float timeToGrow = 10f;
         // What size and shape the plant is
         public PlantShape plantShape;
+        // prefab for the plant growth timer
+        public GameObject timerPrefab;
     }
 
     public enum PlantShape

@@ -19,8 +19,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b37f0db9cf355124d803d83c91b82805, type: 3}
   - {fileID: 21300000, guid: b37f0db9cf355124d803d83c91b82805, type: 3}
   - {fileID: 21300000, guid: b37f0db9cf355124d803d83c91b82805, type: 3}
+  grownSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cells:
   - {x: 0, y: 0}
   canBeRotated: 0
   timeToGrow: 10
   plantShape: 0
+  timerPrefab: {fileID: 5664342109358161760, guid: d1ed2c33b2b30cf428c46668149169cd, type: 3}

@@ -2,7 +2,6 @@ using Assets.Scripts.Plants;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -57,6 +56,7 @@ public class GardenManager : MonoBehaviour
             Debug.Log("Added plant to garden at: " + plant.plantCells[0].x + ", " + plant.plantCells[0].y);
         }
     }
+
 
     // Remove a plant from the plant map.
     public bool RemovePlantFromTile(Vector3Int cellPos)
@@ -127,7 +127,10 @@ public class GardenManager : MonoBehaviour
         // Only grow non-weeds
         foreach (Plant plant in livePlants)
             if (plant is not WeedPlant && !plant.IsDoneGrowing())
-               plant.currentGrowthTime += Time.deltaTime;
+            {
+                plant.currentGrowthTime += Time.deltaTime;
+                plant.UpdatePlantTimerUI();
+            }
     }
 
     // Place a weed at the appropriate location.
