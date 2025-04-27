@@ -45,6 +45,10 @@ public class ShearTool : AGardenTool
         foreach (Vector3Int cell in previewPlant.plantCells)
         {
             if (!GardenManager.SoilMap.HasTile(cell)) return false; // Within the playspace
+        }
+
+        foreach (Vector3Int cell in previewPlant.plantCells)
+        {
             // If there's a plant, then shear it.
             if (GardenManager.TryGetPlant(cell, out Plant plant))
             {
@@ -54,7 +58,6 @@ public class ShearTool : AGardenTool
                 // Shear the plant
                 plant.Shear();
             }
-            
         }
 
         return true;
