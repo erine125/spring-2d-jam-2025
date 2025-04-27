@@ -17,6 +17,9 @@ public class OrderQueue : MonoBehaviour
 
     [SerializeField][Multiline] private List<string> npcDialogues = new();
 
+    public AudioClip newOrderAudioClip; 
+    public AudioSource AudioSource;
+
     // Time until next plant
     private double countdown;
     public double GetCountdown()
@@ -98,6 +101,10 @@ public class OrderQueue : MonoBehaviour
 
         queue.Add(new Order(plant, dialogue, index, obj));
         countdown = Random.Range(OrderFrequencyMin, OrderFrequencyMax);
+
+        // Play audio 
+        AudioSource.PlayOneShot(newOrderAudioClip, 0.4f);
+
 
         var dbgText = "Orders: ";
         foreach (var item in queue) dbgText += $"{item.plantDef.plantName}, ";

@@ -298,6 +298,9 @@ MonoBehaviour:
   GridManager_: {fileID: 427918326}
   seedToolIdx: 1
   gardenManager: {fileID: 1691517166}
+  AudioSource: {fileID: 1735989058}
+  plantSFX: {fileID: 8300000, guid: 754a52f3a382cc24ba51bb9766ed5a4d, type: 3}
+  selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
 --- !u!4 &2050616
 Transform:
   m_ObjectHideFlags: 0
@@ -332,6 +335,9 @@ MonoBehaviour:
   GridManager_: {fileID: 427918326}
   seedToolIdx: 5
   gardenManager: {fileID: 1691517166}
+  AudioSource: {fileID: 1735989058}
+  plantSFX: {fileID: 8300000, guid: 754a52f3a382cc24ba51bb9766ed5a4d, type: 3}
+  selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
 --- !u!114 &2050618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +357,9 @@ MonoBehaviour:
   GridManager_: {fileID: 427918326}
   seedToolIdx: 4
   gardenManager: {fileID: 1691517166}
+  AudioSource: {fileID: 1735989058}
+  plantSFX: {fileID: 8300000, guid: 754a52f3a382cc24ba51bb9766ed5a4d, type: 3}
+  selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
 --- !u!114 &2050619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +379,9 @@ MonoBehaviour:
   GridManager_: {fileID: 427918326}
   seedToolIdx: 3
   gardenManager: {fileID: 1691517166}
+  AudioSource: {fileID: 1735989058}
+  plantSFX: {fileID: 8300000, guid: 754a52f3a382cc24ba51bb9766ed5a4d, type: 3}
+  selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
 --- !u!114 &2050620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +401,9 @@ MonoBehaviour:
   GridManager_: {fileID: 427918326}
   seedToolIdx: 2
   gardenManager: {fileID: 1691517166}
+  AudioSource: {fileID: 1735989058}
+  plantSFX: {fileID: 8300000, guid: 754a52f3a382cc24ba51bb9766ed5a4d, type: 3}
+  selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
 --- !u!114 &2050621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +422,9 @@ MonoBehaviour:
   shearDefinition: {fileID: 11400000, guid: 88bc46a6cedee6f43ae9471be5bcb498, type: 2}
   previewPlant: {fileID: 1797938971}
   GridManager_: {fileID: 427918326}
+  audioSource: {fileID: 1735989058}
+  shearSFX: {fileID: 8300000, guid: f3a18e65db1c6fd4b8f47a22e2fcb6bc, type: 3}
+  selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
 --- !u!114 &2050622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +442,7 @@ MonoBehaviour:
   previewPlant: {fileID: 1797938971}
   harvestDefinition: {fileID: 11400000, guid: 4bfa0222b0e40e64c95c3a5492a10192, type: 2}
   GridManager_: {fileID: 427918326}
+  selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
 --- !u!1 &6145045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,6 +2620,8 @@ MonoBehaviour:
     {Plant} for me, dear.\r"
   - "Can\u2019t let spring end without some fresh {Plant}!\r"
   - "I love these {Plant}! Your garden is the best, Louise!\r"
+  newOrderAudioClip: {fileID: 8300000, guid: 0e445e67247cecd458f989930f7d0ec4, type: 3}
+  AudioSource: {fileID: 1735989058}
 --- !u!4 &1468860637
 Transform:
   m_ObjectHideFlags: 0
@@ -3269,6 +3290,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733331550}
   m_CullTransparentMesh: 1
+--- !u!1 &1735989057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735989059}
+  - component: {fileID: 1735989058}
+  m_Layer: 0
+  m_Name: AudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1735989058
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735989057}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1735989059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735989057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08170551, y: -0.0038513467, z: -0.07102306}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1736126364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,3 +4131,4 @@ SceneRoots:
   - {fileID: 588845378}
   - {fileID: 1691517167}
   - {fileID: 1468860637}
+  - {fileID: 1735989059}

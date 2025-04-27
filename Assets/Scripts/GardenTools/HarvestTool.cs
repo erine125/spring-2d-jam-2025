@@ -12,6 +12,8 @@ public class HarvestTool : AGardenTool
     [SerializeField] private PlantDefinition harvestDefinition;
     [SerializeField] private GridManager GridManager_;
 
+    public AudioClip selectToolSFX;
+
     public override Vector2[] GetCells()
     {
         throw new System.NotImplementedException();
