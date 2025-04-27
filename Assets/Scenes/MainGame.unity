@@ -2592,8 +2592,8 @@ MonoBehaviour:
   OrderFrequencyMin: 4
   OrderFrequencyMax: 6
   npcDialogues:
-  - "Can you believe this weather? {Plant} just scream spring to me. I\u2019ll take
-    one for my kitchen windowsill!\r"
+  - "Can you believe this weather? I think {Plant} just screams spring. I\u2019ll
+    take one for my kitchen windowsill!\r"
   - "Do you have any {Plant}? My mom loves them!\r"
   - "My girlfriend left me\u2026 Do you think {Plant} will win her back?\r"
   - "One order of fresh {Plant} please! I love getting them every spring.\r"
