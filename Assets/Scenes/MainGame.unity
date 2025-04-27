@@ -2612,12 +2612,12 @@ MonoBehaviour:
   OrderFrequencyMax: 6
   npcDialogues:
   - "Can you believe this weather? I think {Plant} just screams spring. I\u2019ll
-    take one for my kitchen windowsill!\r"
+    take one!\r"
   - "Do you have any {Plant}? My mom loves them!\r"
   - "My girlfriend left me\u2026 Do you think {Plant} will win her back?\r"
   - "One order of fresh {Plant} please! I love getting them every spring.\r"
-  - "Look at all these people! You must be getting quite the spring rush. Just some
-    {Plant} for me, dear.\r"
+  - "It's packed! You must be getting quite the spring rush. Just some {Plant} for
+    me, dear.\r"
   - "Can\u2019t let spring end without some fresh {Plant}!\r"
   - "I love these {Plant}! Your garden is the best, Louise!\r"
   newOrderAudioClip: {fileID: 8300000, guid: 0e445e67247cecd458f989930f7d0ec4, type: 3}
