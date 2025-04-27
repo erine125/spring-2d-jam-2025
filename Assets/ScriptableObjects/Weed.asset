@@ -15,12 +15,18 @@ MonoBehaviour:
   plantName: Weed
   orderSprite: {fileID: 0}
   sprites:
-  - {fileID: 21300000, guid: b5261090d82df4b41ab61b89dd9c45cd, type: 3}
-  - {fileID: 21300000, guid: d66cd265dde10a64d906809bcbcaa975, type: 3}
-  - {fileID: 21300000, guid: 456cbeb9a2dd2bb439661db72a64ab65, type: 3}
-  - {fileID: 21300000, guid: 25a77ede8bd80d7499c602dc4e1cea54, type: 3}
+  - {fileID: 21300000, guid: fda6996c3202efd4da53620969e5b2b5, type: 3}
+  - {fileID: 21300000, guid: fda6996c3202efd4da53620969e5b2b5, type: 3}
+  - {fileID: 21300000, guid: fda6996c3202efd4da53620969e5b2b5, type: 3}
+  - {fileID: 21300000, guid: fda6996c3202efd4da53620969e5b2b5, type: 3}
+  grownSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cells:
   - {x: 0, y: 0}
   canBeRotated: 0
   timeToGrow: 10
   plantShape: 0
+  timerPrefab: {fileID: 0}
