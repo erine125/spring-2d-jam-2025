@@ -25,13 +25,15 @@ public class HarvestTool : AGardenTool
 
         if (GardenManager.TryGetPlant(newCellPosition, out Plant plant))
         {
-            if (plant.IsDoneGrowing())
+            if (plant is WeedPlant)
             {
-                //previewPlant.spriteRenderer.color = Color.green;
+                previewPlant.spriteRenderer.sprite = null;
+            }
+            else if (plant.IsDoneGrowing())
+            {
                 previewPlant.spriteRenderer.sprite = harvestDefinition.sprites[0];
             } else
             {
-                //previewPlant.spriteRenderer.color = Color.red;
                 previewPlant.spriteRenderer.sprite = harvestDefinition.grownSprites[0];
             }
         } else
