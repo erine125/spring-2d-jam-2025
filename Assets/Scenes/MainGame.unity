@@ -470,6 +470,7 @@ MonoBehaviour:
   harvestDefinition: {fileID: 11400000, guid: 4bfa0222b0e40e64c95c3a5492a10192, type: 2}
   GridManager_: {fileID: 427918326}
   selectToolSFX: {fileID: 8300000, guid: 72d11ba8ad7120944a6fa887e8a87e40, type: 3}
+  harvestSFX: {fileID: 8300000, guid: bfdc294e71b85a04783a2836f75595b7, type: 3}
   audioSource: {fileID: 1735989058}
   buttonManager: {fileID: 27970017}
   buttonIdx: 0
