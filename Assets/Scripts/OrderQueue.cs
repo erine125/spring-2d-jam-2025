@@ -11,7 +11,7 @@ public class OrderQueue : MonoBehaviour
     public GameObject CardPrefab;
 
     public PlantDefinition[] PossiblePlants;
-    public int QueueLimit = 4;
+    public int QueueLimit = 6;
     public float OrderFrequencyMin = 3f;
     public float OrderFrequencyMax = 6f;
 
@@ -115,7 +115,7 @@ public class Order
     public GameObject obj;
     public RectTransform pos;
 
-    private float CARD_Y_OFFSET = -70; // offset between each card slot
+    private float CARD_Y_OFFSET = -60; // offset between each card slot
     private float OFFSCREEN_X = 275;
     private float SPEED_X = 700;
     private float SPEED_Y = 500;
