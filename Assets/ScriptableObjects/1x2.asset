@@ -28,6 +28,6 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
   canBeRotated: 1
-  timeToGrow: 10
+  timeToGrow: 7
   plantShape: 1
   timerPrefab: {fileID: 5664342109358161760, guid: d1ed2c33b2b30cf428c46668149169cd, type: 3}
