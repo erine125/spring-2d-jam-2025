@@ -39,8 +39,6 @@ public class ShearTool : AGardenTool
 
     public override bool Use(Vector3Int cellPos)
     {
-        // TODO: get plants at rotated cells, and operate on them appropriately
-
         previewPlant.SetPlantCells(cellPos);
         foreach (Vector3Int cell in previewPlant.plantCells)
         {
@@ -72,7 +70,7 @@ public class ShearTool : AGardenTool
         previewPlant.spriteRenderer.sprite = shearDefinition.sprites[0];
         previewPlant.spriteRenderer.color = Color.white; // reset color from previous tool
 
-        GridManager_.toolIdx = 5;
+        GridManager_.toolIdx = 6;
         GridManager_.tool = this;
     }
 }
