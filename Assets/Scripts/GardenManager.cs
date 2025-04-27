@@ -13,9 +13,11 @@ public class GardenManager : MonoBehaviour
     Dictionary<Vector3Int, Plant> plantMap = new();
 
     // Duration of the run
-    public float gameTimer = 180f;
+    public float gameTimerStart = 180f; // don't modify
+    private float gameTimer;
     // Weeds spawn every this many seconds
-    public float timeBetweenWeeds = 20f;
+    public float maxTimeBetweenWeeds = 20f; // time between weeds at the start
+    public float minTimeBetweenWeeds = 10f; // time between weeds at the end
 
     public Tilemap SoilMap;
     public GridManager GridManager;
@@ -28,6 +30,11 @@ public class GardenManager : MonoBehaviour
 
     public GameObject scoreTracker;
     public TextMeshProUGUI gameTimerUI; 
+
+    public GardenManager ()
+    {
+        gameTimer = gameTimerStart;
+    }
 
     
     public bool HasPlant(Vector3Int cellPos) => plantMap.ContainsKey(cellPos);
@@ -141,6 +148,7 @@ public class GardenManager : MonoBehaviour
 
         // Place weeds every X seconds
         weedTimer += Time.deltaTime;
+        float timeBetweenWeeds = maxTimeBetweenWeeds - (maxTimeBetweenWeeds - minTimeBetweenWeeds) * (gameTimerStart - gameTimer) / gameTimerStart;
         if (weedTimer >= timeBetweenWeeds)
         {
             weedTimer = 0f;

@@ -3111,8 +3111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71346bc0b1bab640b88c8f9fcaeaf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimer: 180
-  timeBetweenWeeds: 10
+  gameTimerStart: 180
+  maxTimeBetweenWeeds: 10
+  minTimeBetweenWeeds: 5
   SoilMap: {fileID: 1504633820}
   GridManager: {fileID: 427918326}
   OrderQueue: {fileID: 1468860636}
