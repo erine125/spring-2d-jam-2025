@@ -2,6 +2,7 @@ using UnityEngine;
 using Assets.Scripts.Plants;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 
 public class OrderQueue : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class OrderQueue : MonoBehaviour
     public GameObject CardPrefab;
 
     public PlantDefinition[] PossiblePlants;
+    public Sprite[] plantIcons;
     public int QueueLimit = 6;
     public float OrderFrequencyMin = 3f;
     public float OrderFrequencyMax = 6f;
@@ -92,12 +94,18 @@ public class OrderQueue : MonoBehaviour
     {
         if (GetQueueLength() >= QueueLimit) return "";
 
-        PlantDefinition plant = PossiblePlants[Random.Range(0, PossiblePlants.Length - 1)];
+        // Pick a random plant and get the associated plant variable and sprite 
+        int idx = Random.Range(0, PossiblePlants.Length);
+        PlantDefinition plant = PossiblePlants[idx];
+        Sprite icon = plantIcons[idx];
+
         string npcText = npcDialogues[Random.Range(0, npcDialogues.Count)];
         string dialogue = npcText.Replace("{Plant}", $"<color=\"orange\">{plant.plantName}</color>");
         int index = queue.Count;
         GameObject obj = Instantiate (CardPrefab, Vector3.zero, Quaternion.identity);
         obj.transform.SetParent (ParentCanvas.transform, false);
+
+        obj.transform.Find("Icon").GetComponent<Image>().sprite = icon;
 
         queue.Add(new Order(plant, dialogue, index, obj));
         countdown = Random.Range(OrderFrequencyMin, OrderFrequencyMax);

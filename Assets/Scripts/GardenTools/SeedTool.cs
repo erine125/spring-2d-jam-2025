@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+using UnityEngine.UI;
 
 namespace Assets.Scripts.GardenTools
 {
@@ -26,6 +26,12 @@ namespace Assets.Scripts.GardenTools
         public AudioClip plantSFX;
         public AudioClip selectToolSFX;
 
+        public Sprite unselectedPacketSprite; 
+        public Sprite selectedPacketSprite;
+        public GameObject packetButton;
+
+        public ButtonManager buttonManager;
+        public int buttonIdx;
 
         public void SetCells(Vector2[] cells) => tiles = cells;
         public override Vector2[] GetCells() => tiles;
@@ -102,6 +108,10 @@ namespace Assets.Scripts.GardenTools
         {
             // TODO: set seed cursor icon
 
+            buttonManager.setButtonIcon(packetButton, buttonIdx);
+
+            packetButton.GetComponent<Image>().sprite = selectedPacketSprite;
+
             // Play select tool sound
             AudioSource.PlayOneShot(selectToolSFX);
 
@@ -113,5 +123,6 @@ namespace Assets.Scripts.GardenTools
             GridManager_.toolIdx = seedToolIdx;
             GridManager_.tool = this;
         }
+
     }
 }
