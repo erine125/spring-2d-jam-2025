@@ -108,9 +108,8 @@ namespace Assets.Scripts.GardenTools
         {
             // TODO: set seed cursor icon
 
-            buttonManager.setButtonIcon(packetButton, buttonIdx);
-
-            packetButton.GetComponent<Image>().sprite = selectedPacketSprite;
+            buttonManager.setButtonIcon(buttonIdx);
+            //packetButton.GetComponent<Image>().sprite = selectedPacketSprite;
 
             // Play select tool sound
             AudioSource.PlayOneShot(selectToolSFX);

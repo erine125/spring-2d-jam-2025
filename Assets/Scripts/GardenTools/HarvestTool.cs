@@ -13,6 +13,11 @@ public class HarvestTool : AGardenTool
     [SerializeField] private GridManager GridManager_;
 
     public AudioClip selectToolSFX;
+    public AudioClip harvestSFX;
+
+    public AudioSource audioSource;
+    public ButtonManager buttonManager;
+    public int buttonIdx;
 
     public override Vector2[] GetCells()
     {
@@ -52,6 +57,7 @@ public class HarvestTool : AGardenTool
             if (plant.IsDoneGrowing())
             {
                 GardenManager.HarvestPlant(plant);
+                audioSource.PlayOneShot(harvestSFX, 1.1f);
                 return true;
             }
         }
@@ -61,6 +67,11 @@ public class HarvestTool : AGardenTool
     public override void SetActive()
     {
         // TODO: set harvest/basket cursor icon
+
+        buttonManager.setButtonIcon(buttonIdx);
+
+        // Play select tool sound
+        audioSource.PlayOneShot(selectToolSFX);
 
         previewPlant.definition = harvestDefinition;
         previewPlant.currentRotation = Plant.PlantRotation.North;

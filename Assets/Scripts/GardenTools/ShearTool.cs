@@ -15,6 +15,9 @@ public class ShearTool : AGardenTool
     public AudioClip shearSFX;
     public AudioClip selectToolSFX;
 
+    public ButtonManager buttonManager;
+    public int buttonIdx;
+
     public override Vector2[] GetCells()
     {
         return new[] { new Vector2(0, 0), new Vector2(0, -1) };
@@ -72,6 +75,11 @@ public class ShearTool : AGardenTool
     public override void SetActive()
     {
         // TODO: set shear cursor icon
+
+        buttonManager.setButtonIcon(buttonIdx);
+
+        // Play select tool sound
+        audioSource.PlayOneShot(selectToolSFX);
 
         previewPlant.definition = shearDefinition;
         previewPlant.currentRotation = Plant.PlantRotation.North;

@@ -22,8 +22,9 @@ public class ButtonManager : MonoBehaviour
         
     } 
 
-    public void setButtonIcon(GameObject button, int idx)
+    public void setButtonIcon(int idx)
     {
+        Debug.Log("Set button icon for: " + idx);
         // reset all icons to unselected version 
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -31,7 +32,7 @@ public class ButtonManager : MonoBehaviour
         }
 
         // set icon for selected button 
-        button.GetComponent<Image>().sprite = selectedIcons[idx];
+        buttons[idx].GetComponent<Image>().sprite = selectedIcons[idx];
 
     }
 }
