@@ -58,7 +58,7 @@ public class GridManager : MonoBehaviour
             }
         }
         // Right mouse click -> rotate plant
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.R))
         {
             if (tool) tool.Rotate();
         }

@@ -21,6 +21,6 @@ public class EndScreenManager : MonoBehaviour
     private void OnMouseDown()
     {
         OrderQueue.OrdersCompleted = 0;
-        SceneManager.LoadScene("TitleScreen");
+        SceneManager.LoadScene("MainGame");
     }
 }
