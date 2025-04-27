@@ -2,8 +2,10 @@ using Assets.Scripts.Plants;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class GardenManager : MonoBehaviour
 {
@@ -23,6 +25,10 @@ public class GardenManager : MonoBehaviour
     [SerializeField] private GameObject plantHolder;
 
     public float weedTimer = 0.0f;
+
+    public GameObject scoreTracker;
+    public TextMeshProUGUI gameTimerUI; 
+
     
     public bool HasPlant(Vector3Int cellPos) => plantMap.ContainsKey(cellPos);
 
@@ -113,9 +119,24 @@ public class GardenManager : MonoBehaviour
         GrowPlants();
     }
 
+    void endGame()
+    {
+        SceneManager.LoadScene("EndScreen");
+    }
+
     void HandleTimer()
     {
-        // TODO: display the updated gameTimer to the canvas
+        // display the updated gameTimer to the canvas
+        int timeLeft = (int)gameTimer;
+        timeLeft /= 2; // 2 "days" per second
+        gameTimerUI.text = timeLeft.ToString();
+
+        if (gameTimer <= 0)
+        {
+            endGame();
+            return;
+        }
+
         gameTimer -= Time.deltaTime;
 
         // Place weeds every X seconds

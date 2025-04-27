@@ -5,7 +5,7 @@ using TMPro;
 
 public class OrderQueue : MonoBehaviour
 {
-    public int OrdersCompleted = 0;
+    public static int OrdersCompleted = 0;
 
     public List<TextMeshProUGUI> OrderLabels;
 
