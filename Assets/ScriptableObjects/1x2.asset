@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e39cdef2bad44944a96adca6711bc70, type: 3}
   m_Name: 1x2
   m_EditorClassIdentifier: 
-  plantName: 1x2-Placeholder
+  plantName: rhododendrons
   orderSprite: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 704dd2eb6e32fba44acd01cfdb1507fb, type: 3}
