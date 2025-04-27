@@ -94,7 +94,7 @@ public class OrderQueue : MonoBehaviour
 
         PlantDefinition plant = PossiblePlants[Random.Range(0, PossiblePlants.Length - 1)];
         string npcText = npcDialogues[Random.Range(0, npcDialogues.Count)];
-        string dialogue = npcText.Replace("{Plant}", $"<color=\"red\">{plant.plantName}</color>");
+        string dialogue = npcText.Replace("{Plant}", $"<color=\"orange\">{plant.plantName}</color>");
         int index = queue.Count;
         GameObject obj = Instantiate (CardPrefab, Vector3.zero, Quaternion.identity);
         obj.transform.SetParent (ParentCanvas.transform, false);
