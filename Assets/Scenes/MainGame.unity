@@ -2611,8 +2611,8 @@ MonoBehaviour:
   OrderFrequencyMin: 4
   OrderFrequencyMax: 6
   npcDialogues:
-  - "Can you believe this weather? {Plant} just scream spring to me. I\u2019ll take
-    one for my kitchen windowsill!\r"
+  - "Can you believe this weather? I think {Plant} just screams spring. I\u2019ll
+    take one for my kitchen windowsill!\r"
   - "Do you have any {Plant}? My mom loves them!\r"
   - "My girlfriend left me\u2026 Do you think {Plant} will win her back?\r"
   - "One order of fresh {Plant} please! I love getting them every spring.\r"
@@ -3132,8 +3132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71346bc0b1bab640b88c8f9fcaeaf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimer: 180
-  timeBetweenWeeds: 10
+  gameTimerStart: 180
+  maxTimeBetweenWeeds: 10
+  minTimeBetweenWeeds: 5
   SoilMap: {fileID: 1504633820}
   GridManager: {fileID: 427918326}
   OrderQueue: {fileID: 1468860636}

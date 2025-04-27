@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e39cdef2bad44944a96adca6711bc70, type: 3}
   m_Name: L
   m_EditorClassIdentifier: 
-  plantName: L-Placeholder
+  plantName: forget-me-nots
   orderSprite: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: a29df4ad0f90f5a4abe1a87a10b1dd3b, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e39cdef2bad44944a96adca6711bc70, type: 3}
   m_Name: 2x2
   m_EditorClassIdentifier: 
-  plantName: 2x2-Placeholder
+  plantName: hydrangeas
   orderSprite: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 6328c04f26d0b4e4098b7a8be2c40cac, type: 3}

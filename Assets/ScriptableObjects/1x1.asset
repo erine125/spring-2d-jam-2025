@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e39cdef2bad44944a96adca6711bc70, type: 3}
   m_Name: 1x1
   m_EditorClassIdentifier: 
-  plantName: 1x1-Placeholder
+  plantName: daisies
   orderSprite: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: b37f0db9cf355124d803d83c91b82805, type: 3}
