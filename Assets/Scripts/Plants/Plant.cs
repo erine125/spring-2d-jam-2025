@@ -82,6 +82,13 @@ public class Plant : MonoBehaviour
     {
         currentGrowthTime = 0f;
         spriteRenderer.sprite = definition.sprites[(int)currentRotation];
+
+        // if slider is gone, activate it again
+        if (!slider.activeSelf) {
+            slider.SetActive(true);
+            UpdatePlantTimerUI();
+        }  
+        
     }
 
     public void SetPlantCells(Vector3Int origin)

@@ -11,6 +11,10 @@ public class ShearTool : AGardenTool
     [SerializeField] private Plant previewPlant;
     [SerializeField] private GridManager GridManager_;
 
+    public AudioSource audioSource;
+    public AudioClip shearSFX;
+    public AudioClip selectToolSFX;
+
     public override Vector2[] GetCells()
     {
         return new[] { new Vector2(0, 0), new Vector2(0, -1) };
@@ -51,6 +55,10 @@ public class ShearTool : AGardenTool
             if (GardenManager.TryGetPlant(cell, out Plant plant))
             {
                 // TODO: weed shearing animation/polish
+
+                // Play shearing sound 
+                audioSource.PlayOneShot(shearSFX, 0.9f);
+
                 // Remove from map if it's a weed
                 if (plant is WeedPlant) GardenManager.RemovePlantFromTile(cell);
                 // Shear the plant

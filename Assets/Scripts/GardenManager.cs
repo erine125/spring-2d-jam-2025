@@ -172,6 +172,7 @@ public class GardenManager : MonoBehaviour
                 if (plant.IsDoneGrowing())
                 {
                     var spr = plant.definition.grownSprites[(int)plant.currentRotation];
+                    plant.slider.SetActive(false);
                     if (spr != null)
                     {
                         plant.spriteRenderer.sprite = spr;

@@ -22,6 +22,10 @@ namespace Assets.Scripts.GardenTools
 
         public GardenManager gardenManager;
 
+        public AudioSource AudioSource;
+        public AudioClip plantSFX;
+        public AudioClip selectToolSFX;
+
 
         public void SetCells(Vector2[] cells) => tiles = cells;
         public override Vector2[] GetCells() => tiles;
@@ -55,6 +59,9 @@ namespace Assets.Scripts.GardenTools
                 var plant = newPlant.GetComponent<Plant>();
                 plant.SetPlantCells(cellPos);
                 gardenManager.AddPlant(plant);
+
+                // Play planting sound
+                AudioSource.PlayOneShot(plantSFX);
 
                 previewPlant.plantCells.Clear();
                 return true;
@@ -94,6 +101,9 @@ namespace Assets.Scripts.GardenTools
         public override void SetActive()
         {
             // TODO: set seed cursor icon
+
+            // Play select tool sound
+            AudioSource.PlayOneShot(selectToolSFX);
 
             previewPlant.definition = plantDefinition;
             previewPlant.currentRotation = Plant.PlantRotation.North;
