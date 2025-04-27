@@ -38,7 +38,7 @@ public class ShearTool : AGardenTool
                 return;
             }
         }
-        previewPlant.spriteRenderer.color = Color.white;
+        previewPlant.spriteRenderer.color = new(1, 1, 1, 0.5f);
     }
 
     public override bool Use(Vector3Int cellPos)
@@ -76,7 +76,7 @@ public class ShearTool : AGardenTool
         previewPlant.definition = shearDefinition;
         previewPlant.currentRotation = Plant.PlantRotation.North;
         previewPlant.spriteRenderer.sprite = shearDefinition.sprites[0];
-        previewPlant.spriteRenderer.color = Color.white; // reset color from previous tool
+        previewPlant.spriteRenderer.color = new(1, 1, 1, 0.5f); // reset color from previous tool
 
         GridManager_.toolIdx = 6;
         GridManager_.tool = this;

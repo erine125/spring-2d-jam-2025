@@ -36,11 +36,11 @@ namespace Assets.Scripts.GardenTools
 
             if (gardenManager.CanPlace(previewPlant))
             {
-                previewPlant.spriteRenderer.color = Color.green;
+                previewPlant.spriteRenderer.color = new(.75f, .75f, .75f, .75f);
             }
             else
             {
-                previewPlant.spriteRenderer.color = Color.red;
+                previewPlant.spriteRenderer.color = new(.75f, 0, 0, .5f);
             }
             //Debug.Log(newCellPosition);
         }
@@ -112,7 +112,6 @@ namespace Assets.Scripts.GardenTools
 
             GridManager_.toolIdx = seedToolIdx;
             GridManager_.tool = this;
-
         }
     }
 }
