@@ -13,7 +13,7 @@ public class ScoreTracker : MonoBehaviour
         int score;
         score = OrderQueue.OrdersCompleted;
         Debug.Log(score);
-        scoreText.GetComponent<TextMeshProUGUI>().text = "What a busy season! You fulfilled " + score.ToString() + " orders!";
+        scoreText.GetComponent<TextMeshProUGUI>().text = "What a busy season -- you fulfilled " + score.ToString() + " orders!";
 
     }
 
