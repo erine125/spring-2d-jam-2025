@@ -1,15 +1,20 @@
 using UnityEngine;
 using Assets.Scripts.Plants;
 using System.Collections.Generic;
+using TMPro;
 
 public class OrderQueue : MonoBehaviour
 {
     public int OrdersCompleted = 0;
 
+    public List<TextMeshProUGUI> OrderLabels;
+
     public PlantDefinition[] PossiblePlants;
     public int QueueLimit = 4;
     public float OrderFrequencyMin = 3f;
     public float OrderFrequencyMax = 5f;
+
+    [SerializeField][Multiline] private List<string> npcDialogues = new();
 
     // Time until next plant
     private double countdown;
@@ -40,7 +45,25 @@ public class OrderQueue : MonoBehaviour
     void Update()
     {
         if (countdown > 0) countdown -= Time.deltaTime;
-        if (countdown <= 0) AddOrder();
+        if (countdown <= 0)
+        {
+            var plantName = AddOrder();
+            if (plantName != "") // if order was added
+            {
+                // TODO: update order ui
+                foreach (var label in OrderLabels)
+                {
+                    if (label != null && label.text == "")
+                    {
+                        // NPC dialogue
+                        var text = npcDialogues[Random.Range(0, npcDialogues.Count)];
+                        string dialogue = text.Replace("{Plant}", $"<color=\"red\">{plantName}</color>");
+                        label.text = dialogue;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
 
@@ -61,6 +84,8 @@ public class OrderQueue : MonoBehaviour
         {
             // TODO: display score
             OrdersCompleted += 1;
+
+            OrderLabels[found].text = "";
             queue.RemoveAt(found);
             return true;
         }
@@ -68,11 +93,9 @@ public class OrderQueue : MonoBehaviour
         return false;
     }
 
-    private bool AddOrder()
+    private string AddOrder()
     {
-        if (GetQueueLength() > QueueLimit) return false;
-
-        countdown = 0.01f;
+        if (GetQueueLength() > QueueLimit) return "";
 
         PlantDefinition plant = PossiblePlants[Random.Range(0, PossiblePlants.Length - 1)];
         queue.Add(plant);
@@ -82,6 +105,6 @@ public class OrderQueue : MonoBehaviour
         foreach (var item in queue) text += $"{item.plantName}, ";
         Debug.Log(text);
 
-        return true;
+        return plant.plantName;
     }
 }
