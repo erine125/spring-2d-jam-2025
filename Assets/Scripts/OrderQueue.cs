@@ -12,7 +12,7 @@ public class OrderQueue : MonoBehaviour
     public PlantDefinition[] PossiblePlants;
     public int QueueLimit = 4;
     public float OrderFrequencyMin = 3f;
-    public float OrderFrequencyMax = 5f;
+    public float OrderFrequencyMax = 6f;
 
     [SerializeField][Multiline] private List<string> npcDialogues = new();
 

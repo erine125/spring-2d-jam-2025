@@ -15,10 +15,13 @@ namespace Assets.Scripts.GardenTools
         [SerializeField] private PlantDefinition plantDefinition;
         [SerializeField] private Plant previewPlant;
         [SerializeField] private GameObject plantHolder;
+        [SerializeField] private GridManager GridManager_;
+        public int seedToolIdx;
 
         private Vector2[] tiles;
 
         public GardenManager gardenManager;
+
 
         public void SetCells(Vector2[] cells) => tiles = cells;
         public override Vector2[] GetCells() => tiles;
@@ -96,6 +99,10 @@ namespace Assets.Scripts.GardenTools
             previewPlant.currentRotation = Plant.PlantRotation.North;
             previewPlant.spriteRenderer.sprite = plantDefinition.sprites[0];
             previewPlant.spriteRenderer.color = Color.white; // Reset color
+
+            GridManager_.toolIdx = seedToolIdx;
+            GridManager_.tool = this;
+
         }
     }
 }

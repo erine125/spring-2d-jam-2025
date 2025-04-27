@@ -9,6 +9,7 @@ public class ShearTool : AGardenTool
     [SerializeField] private GardenManager GardenManager;
     [SerializeField] private PlantDefinition shearDefinition;
     [SerializeField] private Plant previewPlant;
+    [SerializeField] private GridManager GridManager_;
 
     public override Vector2[] GetCells()
     {
@@ -67,6 +68,9 @@ public class ShearTool : AGardenTool
         previewPlant.currentRotation = Plant.PlantRotation.North;
         previewPlant.spriteRenderer.sprite = shearDefinition.sprites[0];
         previewPlant.spriteRenderer.color = Color.white; // reset color from previous tool
+
+        GridManager_.toolIdx = 5;
+        GridManager_.tool = this;
     }
 }
 

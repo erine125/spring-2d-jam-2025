@@ -10,6 +10,7 @@ public class HarvestTool : AGardenTool
     
     [SerializeField] private Plant previewPlant;
     [SerializeField] private PlantDefinition harvestDefinition;
+    [SerializeField] private GridManager GridManager_;
 
     public override Vector2[] GetCells()
     {
@@ -63,5 +64,9 @@ public class HarvestTool : AGardenTool
         previewPlant.currentRotation = Plant.PlantRotation.North;
         previewPlant.spriteRenderer.sprite = null;
         previewPlant.spriteRenderer.color = Color.white; // Reset color
+
+
+        GridManager_.toolIdx = 0;
+        GridManager_.tool = this;
     }
 }

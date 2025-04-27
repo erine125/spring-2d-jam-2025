@@ -18,8 +18,8 @@ public class GridManager : MonoBehaviour
     private AGardenTool[] toolList;
 
     private Grid grid;
-    private int toolIdx = 0;
-    private AGardenTool tool;
+    public int toolIdx = 0;
+    public AGardenTool tool;
 
     private Vector3Int previousMouseCellPos = new();
 
